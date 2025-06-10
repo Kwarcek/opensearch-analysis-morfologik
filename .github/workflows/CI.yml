@@ -1,4 +1,4 @@
-name: Build and Upload Plugin
+name: Build and Release Plugin
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Set up JDK 17
@@ -19,13 +19,16 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Grant execute permission to gradlew
+      - name: Grant permission to gradlew
         run: chmod +x gradlew
 
       - name: Build plugin
         run: ./gradlew clean assemble -Dopensearch.version=2.19.2
 
-      - name: Upload release asset
+      - name: Verify ZIP structure
+        run: unzip -l build/distributions/*.zip
+
+      - name: Upload ZIP to GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: build/distributions/*.zip
