@@ -12,14 +12,14 @@ base on [Morfologik](http://morfologik.blogspot.com).
 
 ### OpenSearch
 ```
-opensearch-plugin install https://github.com/Ksawierek/opensearch-analysis-morfologik/releases/download/2.11.1/opensearch-analysis-morfologik-2.11.1.zip
+opensearch-plugin install https://github.com/Kwarcek/opensearch-analysis-morfologik/releases/download/2.19.2/opensearch-analysis-morfologik-2.19.2.zip
 ```
 
 ### Containerfile
 ```
-FROM opensearchproject/opensearch:2.11.1
+FROM opensearchproject/opensearch:2.19.2
 
-RUN opensearch-plugin install https://github.com/Ksawierek/opensearch-analysis-morfologik/releases/download/2.11.1/opensearch-analysis-morfologik-2.11.1.zip
+RUN opensearch-plugin install https://github.com/Kwarcek/opensearch-analysis-morfologik/releases/download/2.19.2/opensearch-analysis-morfologik-2.19.2.zip
 ```
 
 Helpful links:
